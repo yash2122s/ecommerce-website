@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Fashion - Fashify</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .womens-section {
+            padding: 80px 0;
+            margin-top: 60px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            padding-top: 100%; /* 1:1 Aspect Ratio */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex: 1;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .product-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .btn {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+            border: 1px solid #dee2e6;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-tab {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .category-tab:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Fashify</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="wishlist.html" class="wishlist-icon"><i class="fas fa-heart"></i></a>
+                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+                <div class="user-actions">
+                    <button id="loginBtn" class="btn">Login</button>
+                    <button id="registerBtn" class="btn">Register</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Women's Fashion Section -->
+    <section class="womens-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Women's Fashion Collection</h2>
+                <div class="category-tabs">
+                    <button class="category-tab active" onclick="filterCategory('all')">All</button>
+                    <button class="category-tab" onclick="filterCategory('dresses')">Dresses</button>
+                    <button class="category-tab" onclick="filterCategory('tops')">Tops</button>
+                    <button class="category-tab" onclick="filterCategory('accessories')">Accessories</button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="womensProducts">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Fashify</h3>
+                    <p>Your one-stop destination for all fashion needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Fashify. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Women's Fashion Products Data
+        const womensProducts = [
+            {
+                id: 1,
+                name: "Floral Summer Dress",
+                price: 79.99,
+                image: "images/womens-dress1.jpg",
+                category: "dresses"
+            },
+            {
+                id: 2,
+                name: "Elegant Blouse",
+                price: 45.99,
+                image: "images/womens-top1.jpg",
+                category: "tops"
+            },
+            {
+                id: 3,
+                name: "Designer Handbag",
+                price: 159.99,
+                image: "images/womens-acc1.jpg",
+                category: "accessories"
+            },
+            {
+                id: 4,
+                name: "Evening Gown",
+                price: 199.99,
+                image: "images/womens-dress2.jpg",
+                category: "dresses"
+            },
+            {
+                id: 5,
+                name: "Casual T-Shirt",
+                price: 29.99,
+                image: "images/womens-top2.jpg",
+                category: "tops"
+            },
+            {
+                id: 6,
+                name: "Statement Necklace",
+                price: 49.99,
+                image: "images/womens-acc2.jpg",
+                category: "accessories"
+            }
+        ];
+
+        // Function to display products
+        function displayWomensProducts(category = 'all') {
+            const productsGrid = document.getElementById('womensProducts');
+            const filteredProducts = category === 'all' 
+                ? womensProducts 
+                : womensProducts.filter(product => product.category === category);
+
+            productsGrid.innerHTML = filteredProducts.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-price">$${product.price.toFixed(2)}</p>
+                        <div class="product-actions">
+                            <button onclick="addToCart(${product.id}, '${product.name}', ${product.price}, '${product.image}')" class="btn btn-primary">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </button>
+                            <button onclick="removeFromCart(${product.id})" class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Function to filter products by category
+        function filterCategory(category) {
+            // Update active tab
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Display filtered products
+            displayWomensProducts(category);
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            displayWomensProducts();
+        });
+    </script>
+</body>
+</html> 

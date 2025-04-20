@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Fashify</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Fashify</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="wishlist.html" class="wishlist-icon"><i class="fas fa-heart"></i></a>
+                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+                <div class="user-actions">
+                    <button id="loginBtn" class="btn">Login</button>
+                    <button id="registerBtn" class="btn">Register</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Filters -->
+    <section class="product-filters">
+        <div class="container">
+            <div class="filter-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                    <button onclick="handleSearch()"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="filter-options">
+                    <select id="categoryFilter" onchange="handleFilter()">
+                        <option value="all">All Categories</option>
+                        <option value="men">Men's Fashion</option>
+                        <option value="women">Women's Fashion</option>
+                        <option value="kids">Kids' Fashion</option>
+                    </select>
+
+                    <select id="priceFilter" onchange="handleFilter()">
+                        <option value="">Price Range</option>
+                        <option value="0-25">Under $25</option>
+                        <option value="25-50">$25 - $50</option>
+                        <option value="50-100">$50 - $100</option>
+                        <option value="100-999">$100+</option>
+                    </select>
+
+                    <select id="sortFilter" onchange="handleFilter()">
+                        <option value="">Sort By</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-header">
+                <h2>Our Products</h2>
+                <p class="products-count">Showing <span id="productCount">0</span> products</p>
+            </div>
+            <div id="productsGrid" class="products-grid">
+                <!-- Boot Product Cards -->
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-image-wrapper">
+                        <img src="images/boots1.jpg" alt="Leather Boots" class="product-image">
+                        <div class="product-actions">
+                            <button class="action-btn wishlist-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="action-btn view-btn"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Men's Boots</div>
+                        <h3 class="product-title">Premium Leather Boots</h3>
+                        <div class="product-price">₹4,999</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(5.0)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge">Trending</div>
+                    <div class="product-image-wrapper">
+                        <img src="images/boots2.jpg" alt="Ankle Boots" class="product-image">
+                        <div class="product-actions">
+                            <button class="action-btn wishlist-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="action-btn view-btn"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Women's Boots</div>
+                        <h3 class="product-title">Stylish Ankle Boots</h3>
+                        <div class="product-price">₹3,499</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.5)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge">Sale</div>
+                    <div class="product-image-wrapper">
+                        <img src="images/boots3.jpg" alt="Combat Boots" class="product-image">
+                        <div class="product-actions">
+                            <button class="action-btn wishlist-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="action-btn view-btn"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Unisex Boots</div>
+                        <h3 class="product-title">Combat Boots</h3>
+                        <div class="product-price">₹2,999</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.8)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="images/boots4.jpg" alt="Chelsea Boots" class="product-image">
+                        <div class="product-actions">
+                            <button class="action-btn wishlist-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="action-btn view-btn"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Men's Boots</div>
+                        <h3 class="product-title">Chelsea Boots</h3>
+                        <div class="product-price">₹3,799</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.6)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Details Modal -->
+    <div id="productDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="productDetails">
+                <!-- Product details will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Fashify</h3>
+                    <p>Your one-stop destination for all fashion needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Fashify. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+    <script>
+        // Handle Search
+        function handleSearch() {
+            const searchQuery = document.getElementById('searchInput').value;
+            const filteredProducts = searchProducts(searchQuery);
+            displayProducts(filteredProducts, 'productsGrid');
+        }
+
+        // Handle Filter
+        function handleFilter() {
+            const category = document.getElementById('categoryFilter').value;
+            const priceRange = document.getElementById('priceFilter').value;
+            const sortBy = document.getElementById('sortFilter').value;
+            
+            const filteredProducts = filterProducts(category, priceRange, sortBy);
+            displayProducts(filteredProducts, 'productsGrid');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initProductPage();
+        });
+    </script>
+</body>
+</html> 

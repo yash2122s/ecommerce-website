@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Fashify</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .about-section {
+            padding: 80px 0;
+            margin-top: 60px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .team-section {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .team-member p {
+            color: #666;
+        }
+
+        .values-section {
+            padding: 60px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Fashify</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="wishlist.html" class="wishlist-icon"><i class="fas fa-heart"></i></a>
+                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+                <div class="user-actions">
+                    <button id="loginBtn" class="btn">Login</button>
+                    <button id="registerBtn" class="btn">Register</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2>Our Story</h2>
+                <p>Welcome to Fashify, your premier destination for contemporary fashion. Founded in 2024, we've been dedicated to bringing you the latest trends and timeless classics that help you express your unique style.</p>
+                <p>Our mission is to make fashion accessible to everyone while maintaining the highest standards of quality and sustainability. We carefully curate our collections to ensure that every piece meets our exacting standards.</p>
+                <p>At Fashify, we believe that fashion is more than just clothing – it's a form of self-expression, confidence, and empowerment. We're committed to helping you find pieces that make you feel amazing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Quality</h3>
+                    <p>We never compromise on the quality of our products, ensuring that each piece meets our high standards.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainability</h3>
+                    <p>We're committed to reducing our environmental impact through sustainable practices and materials.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Community</h3>
+                    <p>We believe in building a strong community of fashion enthusiasts who support and inspire each other.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="images/team1.jpg" alt="Sarah Johnson">
+                    <h3>Sarah Johnson</h3>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team2.jpg" alt="Michael Chen">
+                    <h3>Michael Chen</h3>
+                    <p>Creative Director</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team3.jpg" alt="Emily Rodriguez">
+                    <h3>Emily Rodriguez</h3>
+                    <p>Head of Design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Fashify</h3>
+                    <p>Your one-stop destination for all fashion needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Fashify. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html> 
